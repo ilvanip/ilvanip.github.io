@@ -1,0 +1,51 @@
+/*section
+{
+	height:max-content;
+	width:100%;
+}*/
+
+/*Styles specific to sections*/
+#opener
+{
+	background-color:#fcdab7;
+}
+#about-us
+{
+	background-color:#ffac41;
+}
+#what-we-offer
+{
+	background-color:#5fac41;
+}
+#our-profile
+{
+	background-color:#ca3e47;
+}
+.profile-card
+{
+	background-color:#46466e;
+	color:white;
+	width: 20rem;
+}
+#contact-us
+{
+	background-color:#bc6ff1;
+}
+
+
+
+
+/*Styles common across sections*/
+.left-side-border
+{
+	border-right: 2px solid black;
+}
+.vertically-centered
+{
+	align-items: center;
+}
+
+span[data-seperator]::after
+{
+	content: attr(data-seperator);
+}

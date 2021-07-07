@@ -1,0 +1,291 @@
+<!--
+All templates come here.
+-->
+<template id="gift-card-item">
+	<div class="col-3 d-flex justify-content-center left-side-border" >
+		<div class="card">
+			<img class="card-img-top" src="" alt="Card image cap">
+		</div>
+	</div>
+</template>
+
+<template id="founder-profile-card">
+	<div class="col-3 d-flex justify-content-center">
+		<div class="card profile-card">
+			<!--Img src needs to be set manaully.-->
+			<img class="card-img-top" src="" alt="Card image cap">
+			<div class="card-body text-center">
+				<!--p content has to be set manaully -->
+				<p class="card-text"></p>
+			</div>
+		</div>
+	</div>
+</template>
+
+<html>
+	<head>
+		<!--Boostrap needs jQuery.-->
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css"></link>
+		<link rel="stylesheet" href="css/custom.css"></link>
+		<!--Function to regenerate the templates.-->
+		<script>
+			//Template identifiers.
+			const gift_card_template=document.getElementById('gift-card-item');
+			//Function to render the gift cards.
+			const renderGiftCards=(imgs,gift_card_parent_id)=>
+			{
+				const gift_card_parent=document.getElementById(gift_card_parent_id);
+				imgs
+				.map((img)=>{return `img/${img}`})
+				.forEach((img_src)=>
+				{
+					const card=gift_card_template.content.cloneNode(true);
+					card.querySelector('img').src=img_src;
+					gift_card_parent.appendChild(card);
+				});
+			};
+
+			//Template identifiers.
+			const founder_profile_card_template=document.getElementById('founder-profile-card');
+			//Function to render the founder profile cards.
+			const renderFounderProfileCards=(data,founder_profile_card_parent_id)=>
+			{
+				const parent=document.getElementById(founder_profile_card_parent_id);
+				data
+				.forEach((data_item)=>
+				{
+					const card=founder_profile_card_template.content.cloneNode(true);
+					card.querySelector('img').src=`img/${data_item.img}`;
+					card.querySelector('p').innerHTML=data_item.content.join('<br>');
+					parent.appendChild(card);
+				});
+			};
+
+		</script>
+	</head>
+	<body>
+
+		<!--Navbar containing the required links.-->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">
+				HOBBIES<span style="font-size:3rem;">&</span>LOVE
+				<!--<img src="">-->
+			</a>
+			<button
+			class="navbar-toggler"
+			type="button"
+			data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent"
+			aria-expanded="false"
+			aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#about-us">About Us</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#our-profile">Our Profile</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="other/brochure.pdf" target="blank">Brochure</a>
+					</li>
+					<li class="nav-item">
+						<a
+						class="nav-link"
+						href="https://drive.google.com/file/d/18fnZu1Csge2SsBUKVwYQ7Tai-yw929VR/view"
+						target="blank">
+						Video Demo
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#contact-us">Contact Us</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<!--The carousel comes here.-->
+		<div id="carouselExampleIndicators" class="carousel slide w-100" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img class="d-block w-100 h-75" src="img/carousel1.png" alt="First slide">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100 h-75" src="img/carousel2.png" alt="Second slide">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100 h-75" src="img/carousel3.png" alt="Third slide">
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+
+		<!--Section displaying the opening statement.-->
+		<section id="opener">
+			<div class="columns">
+				<div class="row vertically-centered">
+					<div class="col-8 text-center">
+						<h5>Having trouble finding the ultimate gift for your loved ones?</h5>
+						<h5>Cannot find the the perfect gift to express your feelings?</h5>
+						<h5>Not satisfied with the limited options you have?</h5>
+						<h4>Don't worry.</h4>
+						<h4>We've got you covered!</h4>
+						<h3>Introducing "HOBBIES<span style="font-size:3rem;">&</span>LOVE":</h3>
+						<h3>your one stop for every gift you could possibly hope for!</h3>
+					</div>
+					<div class="col-4 text-center">
+						<img class="w-100 h-100" src="img/opener.png" alt="First slide">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--The about us section.-->
+		<section id="about-us">
+			<div class="columns">
+				<div class="row vertically-centered">
+					<div class="col-6 text-center left-side-border">
+						<h1><u>Our Vision</u></h1><hr>
+						<div class="container d-flex justify-content-center">
+							"To provide customised presents that are uniquely handmade for each customer,
+							as well as to inspire hobby enthusiasts"
+						</div>				
+					</div>
+					<div class="col-6 text-center">
+						<h1><u>Our Mission</u></h1><hr>
+						<div class="container d-flex justify-content-center">
+							"To help everyone find their perfect gift of choice in a fun way."
+						</div>				
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--The "What We Offer" section.-->
+		<section id="what-we-offer">
+			<div class="columns">
+				<div class="col text-center">
+					<h1><u>What We Offer</u></h1>
+					<p>
+						The best gift to possibly give someone is a gift that captures and conveys your feelings across.
+						We are a small venture dedicated to bringing the power of choice to your doorstep
+							so that you can create the perfect gift for that special someone.
+					</p>
+					<p>
+						We offer a wide variety of base gift-item designs like keychains, greeting cards, gift boxes and glass art.
+						Further customizable options include choosing your graphic or SVG artwork, preferred color scheme or specifying an entirely new design.
+					</p>
+				</div>
+
+				<div class="col text-center">
+					<div class="row vertically-centered" id="gift-items-row1">
+						<script>
+							renderGiftCards([
+								'hal1.png',
+								'hal2.png',
+								'hal3.png',
+								'hal4.png',
+							],'gift-items-row1');
+						</script>
+					</div>
+					<hr>
+					<div class="row vertically-centered" id='gift-items-row2'>
+						<script>
+							renderGiftCards([
+								'hal5.png',
+								'hal6.png',
+								'hal7.png',
+								'hal8.png',
+							],'gift-items-row2');
+						</script>
+					</div>
+				</div>
+				<hr>
+				<div class="col text-center">
+					Introducing a new range of customizable DIY kits, for those who wish to make it themselves!.
+					Select the kind of items you would like to make, and a kit tailor-made for you will be delivered at your doorstep.
+				</div>
+				<hr>
+				<div class="col text-center">
+					<p style="font-size:1.5rem;">Coming soon!</p>
+					<p>The official HOBBIES<span style="font-size:3rem;">&</span>LOVE app on PlayStore!</p>
+				</div>
+			</div>
+		</section>
+
+		<!--Our profile.-->
+		<section id="our-profile">
+			<div class="columns">
+				<div class="col text-center"><h1><u>Who We Are</u></h1></div>
+				<hr>
+				<div class="row vertically-centered" id="founder-profile-parent">
+					<script>
+						//Generate all the founder profile cards.
+						renderFounderProfileCards(
+						[
+							//Data for Nikki.
+							{
+								img:'nw.png',
+								'content':['Nikki Wagholikar','CEO','Head of Marketing',],
+							},
+							//Data for Shagun.
+							{
+								img:'sc.png',
+								'content':['Shagun Choudhari','CFO','Head of Finance',],
+							},
+							//Data for Abhishek.
+							{
+								img:'asn.png',
+								'content':['Abhishek Swaminathan','CTO','Head of Technology',],
+							},
+							//Data for Talele Sir.
+							{
+								img:'ktt.png',
+								'content':['Professor Kiran Talele','Mentor'],
+							},
+						],
+						'founder-profile-parent');
+					</script>
+				</div>
+			</div>
+		</section>
+
+		<!--The contact us section.-->
+		<section id="contact-us">
+			<div class="columns">
+				<div class="col text-center"><h1><u>Contact Us</u></h1></div>
+				<hr>
+				<div class="row vertically-centered">
+					<div class="col-4 text-center left-side-border">nikki.wagholikar@spit.ac.in</div>
+					<div class="col-4 text-center left-side-border">shagun.choudhari@spit.ac.in</div>
+					<div class="col-4 text-center">abhishek.s@spit.ac.in</div>
+				</div>
+				<hr>
+				<div class="col text-center">
+					8<sup>th</sup> floor, Sardar Patel Institute of Technology, inside Bhavans Campus,
+					Dadabhai Cross Road Number 2, Andheri, Mumbai,
+					Manarashtra, India
+				</div>
+			</div>
+		</section>
+
+	</body>
+</html>
